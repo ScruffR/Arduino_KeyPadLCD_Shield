@@ -1,8 +1,8 @@
 {
-  "name": "LiquidCrystal",
-  "author": "Adafruit, Technobly",
+  "name": "Arduino_KeyPadLCD_Shield",
+  "author": "Adafruit, Technobly, ScruffR",
   "license": "GNU GPLv3",
-  "version": "0.0.3",
-  "description": "LiquidCrystal on Spark Core",
-  "namespace": "LiquidCrystal"
+  "version": "0.0.1",
+  "description": "Library to use the Arduino KeyPad LCD Shield on Particle devices and the Particle Shield shield (based on LiquidCrystal lib)",
+  "namespace": "Arduino_KeyPadLCD_Shield"
 }
