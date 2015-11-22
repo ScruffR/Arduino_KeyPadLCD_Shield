@@ -13,19 +13,22 @@
  Particle.variable().
  
   Wiring for Particle Shield shield v3.0.1
- * LCD RS pin to digital pin A5
- * LCD EN pin to digital pin A4
- * LCD D4 pin to digital pin D6
- * LCD D5 pin to digital pin D0
- * LCD D6 pin to digital pin D1
- * LCD D7 pin to digital pin D7
-
+  * LCD RS pin to digital pin A5
+  * LCD EN pin to digital pin A4
+  * LCD D4 pin to digital pin D6
+  * LCD D5 pin to digital pin D0
+  * LCD D6 pin to digital pin D1
+  * LCD D7 pin to digital pin D7
+  * KeyPad A0  to analog  pin A0 (before usage make sure shield output max 3.3V)  
+ 
  Copyright ScruffR 2015
 
  http://www.dfrobot.com/wiki/index.php/LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009
 */
 
 #include "Arduino_KeyPadLCD_Shield/LiquidCrystal.h"
+
+#undef KEYPAD_PIN_CONFIRMED_3V3  // change to #define once max voltage on A0 confirmed <= 3.3V
 
 enum struct BUTTONS {
     NONE = 0,
@@ -54,7 +57,14 @@ LiquidCrystal lcd(A5, A4, D6, D0, D1, D7); // Shield shield v3.0.1
 
 void setup() 
 {
+#if !defined(KEYPAD_PIN_CONFIRMED_3V3)
+  #pragma GCC error "Make sure A0 pin never goes over 3.3V! - when confirmed #define KEYPAD_PIN_CONFIRMED_3V3" 
+#else
   pinMode(A0, INPUT);  // pin for button array (read analog value)
+                       // make sure KeyPad LCD shield never exceedes 3.3V
+                       // on this pin (measure with no button pressed)
+#endif
+
   lcd.begin(16,2);
   selectItem(curItem);
 
@@ -64,6 +74,10 @@ void setup()
 BUTTONS  btn;
 void loop() 
 {
+#if !defined(KEYPAD_PIN_CONFIRMED_3V3)
+  #pragma GCC error "Make sure A0 pin never goes over 3.3V! - when confirmed #define KEYPAD_PIN_CONFIRMED_3V3" 
+#else
+
   int val = analogRead(A0);
 
   lcd.setCursor(0, 1);
@@ -107,6 +121,7 @@ void loop()
     btn = BUTTONS::UP;
   else
     btn = BUTTONS::RIGHT;
+#endif
 }
 
 void selectItem(int itemNr) 
