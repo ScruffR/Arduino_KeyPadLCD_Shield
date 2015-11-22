@@ -1,6 +1,6 @@
-#ifndef LiquidCrystal_h
-#define LiquidCrystal_h
-   
+#pragma once
+#include "application.h"
+
 // commands
 #define LCD_CLEARDISPLAY 0x01
 #define LCD_RETURNHOME 0x02
@@ -97,5 +97,3 @@ private:
 
   uint8_t _numlines,_currline;
 };
-
-#endif
