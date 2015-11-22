@@ -1,5 +1,5 @@
 #pragma once
-
+#include "application.h"
 #include "LiquidCrystal.h"
 
 enum struct BUTTONS {
