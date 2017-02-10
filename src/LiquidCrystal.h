@@ -1,5 +1,5 @@
 #pragma once
-#include "application.h"
+#include "Particle.h"
 
 // commands
 #define LCD_CLEARDISPLAY 0x01

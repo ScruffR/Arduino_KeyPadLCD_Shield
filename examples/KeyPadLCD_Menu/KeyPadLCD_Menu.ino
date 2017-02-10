@@ -26,7 +26,7 @@
  http://www.dfrobot.com/wiki/index.php/LCD_KeyPad_Shield_For_Arduino_SKU:_DFR0009
 */
 
-#include "Arduino_KeyPadLCD_Shield/Arduino_KeyPadLCD_Shield.h"
+#include "Arduino_KeyPadLCD_Shield.h"
 
 #undef KEYPAD_PIN_CONFIRMED_3V3  // change to #define once max voltage on A0 confirmed <= 3.3V
 
