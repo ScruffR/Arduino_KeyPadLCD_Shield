@@ -44,6 +44,7 @@ int curItem = 0;
 uint32_t msScroll;
 char selItem[9];
 
+// LiquidCrystal lcd(D5, D6, D3, D1, A7, D4); // Shield shield v2.0.1
 LiquidCrystal lcd(A5, A4, D6, D0, D1, D7); // Shield shield v3.0.1
 
 void setup() 
